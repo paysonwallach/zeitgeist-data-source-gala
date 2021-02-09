@@ -130,7 +130,7 @@ public class Zeitgeist.Plugin : Gala.Plugin {
             var event = new Zeitgeist.Event.full (
                 "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#LeaveEvent",
                 "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#UserActivity",
-                "gala-zeitgeist",
+                "application://zeitgeist-logger-gala.desktop",
                 null,
                 subject);
 
@@ -151,7 +151,7 @@ public class Zeitgeist.Plugin : Gala.Plugin {
         var event = new Zeitgeist.Event.full (
             "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#AccessEvent",
             "http://www.zeitgeist-project.com/ontologies/2010/01/27/zg#UserActivity",
-            "gala-zeitgeist",
+            "application://zeitgeist-logger-gala.desktop",
             null,
             subject);
 

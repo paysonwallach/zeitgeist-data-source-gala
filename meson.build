@@ -7,20 +7,10 @@ project(
   version: '0.1.0'
 )
 
-vala = meson.get_compiler('vala')
-
 prefix = get_option('prefix')
 libdir = join_paths(prefix, get_option('libdir'))
 plugins_dir = join_paths(get_option('prefix'), get_option('libdir'), 'gala', 'plugins')
-
 vapi_dir = join_paths(meson.current_source_dir(), 'vapi')
-
-add_project_arguments(
-  '--vapidir=' + vapi_dir,
-  language: 'vala',
-)
-
-# dependencies
 
 glib_version_required = '2.44.0'
 gtk_version_required = '3.10.0'
@@ -74,12 +64,12 @@ endif
 
 mutter334_dep = dependency('libmutter-5', version: ['>= 3.34', '< 3.35.1'], required: false)
 if mutter334_dep.found()
-    libmutter_dep = dependency('libmutter-5', version: '>= 3.34')
-    mutter_dep = [
-        dependency('mutter-cogl-5'), dependency('mutter-cogl-pango-5'),
-        dependency('mutter-cogl-path-5'), dependency('mutter-clutter-5')
-    ]
-    vala_flags = ['--define', 'HAS_MUTTER330', '--define', 'HAS_MUTTER332', '--define', 'HAS_MUTTER334']
+  libmutter_dep = dependency('libmutter-5', version: '>= 3.34')
+  mutter_dep = [
+    dependency('mutter-cogl-5'), dependency('mutter-cogl-pango-5'),
+    dependency('mutter-cogl-path-5'), dependency('mutter-clutter-5')
+  ]
+  vala_flags = ['--define', 'HAS_MUTTER330', '--define', 'HAS_MUTTER332', '--define', 'HAS_MUTTER334']
 endif
 
 mutter336_dep = dependency('libmutter-6', version: ['>= 3.35.1', '< 3.37'], required: false)
@@ -108,25 +98,10 @@ endif
 
 mutter_typelib_dir = libmutter_dep.get_pkgconfig_variable('typelibdir')
 
-gala_spruce_sources = files(
-  'lib/Main.vala'
+add_project_arguments(
+  '--vapidir=' + vapi_dir,
+  language: 'vala',
 )
 
-shared_library(
-  'gala-zeitgeist',
-  gala_spruce_sources,
-  dependencies: [
-    gala_dep,
-    gee_dep,
-    gio_unix_dep,
-    glib_dep,
-    gobject_dep,
-    mutter_dep,
-    zeitgeist_dep
-  ],
-  install: true,
-  vala_args: vala_flags,
-  c_args: c_flags,
-  install_dir: plugins_dir,
-  install_rpath: mutter_typelib_dir,
-)
+subdir('data')
+subdir('lib')
