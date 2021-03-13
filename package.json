@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "zeitgeist-logger-gala",
   "description": "Record your application usage in Zeitgeist.",
   "license": "GPL-3.0",
