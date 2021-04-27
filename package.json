@@ -1,16 +1,16 @@
 {
   "private": true,
-  "name": "zeitgeist-logger-gala",
+  "name": "zeitgeist-data-source-gala",
   "description": "Record your application usage in Zeitgeist.",
   "license": "GPL-3.0",
   "author": "Payson Wallach <payson@paysonwallach.com>",
-  "homepage": "https://github.com/paysonwallach/zeitgeist-logger-gala#readme",
+  "homepage": "https://github.com/paysonwallach/zeitgeist-data-source-gala#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paysonwallach/zeitgeist-logger-gala.git"
+    "url": "git+https://github.com/paysonwallach/zeitgeist-data-source-gala.git"
   },
   "bugs": {
-    "url": "https://github.com/paysonwallach/zeitgeist-logger-gala/issues"
+    "url": "https://github.com/paysonwallach/zeitgeist-data-source-gala/issues"
   },
   "version": "0.1.0",
   "scripts": {
@@ -41,16 +41,16 @@
     "owner": "paysonwallach",
     "license": {
       "name": "GNU General Public License v3.0",
-      "url": "https://github.com/paysonwallach/zeitgeist-logger-gala/blob/master/LICENSE"
+      "url": "https://github.com/paysonwallach/zeitgeist-data-source-gala/blob/master/LICENSE"
     },
     "media": {
-      "url": "https://github.com/paysonwallach/zeitgeist-logger-gala/blob/master/media"
+      "url": "https://github.com/paysonwallach/zeitgeist-data-source-gala/blob/master/media"
     },
     "todo": {
-      "url": "https://github.com/paysonwallach/zeitgeist-logger-gala/blob/master/TODO.md"
+      "url": "https://github.com/paysonwallach/zeitgeist-data-source-gala/blob/master/TODO.md"
     },
     "releases": {
-      "url": "https://github.com/paysonwallach/zeitgeist-logger-gala/releases"
+      "url": "https://github.com/paysonwallach/zeitgeist-data-source-gala/releases"
     }
   },
   "standard-version": {

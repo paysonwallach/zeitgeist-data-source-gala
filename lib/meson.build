@@ -1,5 +1,5 @@
 shared_library(
-  'gala-zeitgeist',
+  'zeitgeist-data-source-gala',
   'Main.vala',
   dependencies: [
     gala_dep,

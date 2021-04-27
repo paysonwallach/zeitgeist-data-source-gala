@@ -1,5 +1,5 @@
 project(
-  'zeitgeist-logger-gala',
+  'zeitgeist-data-source-gala',
   'vala',
   'c',
   license: ['GPL3'],
