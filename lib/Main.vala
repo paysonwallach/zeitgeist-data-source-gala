@@ -18,14 +18,34 @@
 public class Zeitgeist.Plugin : Gala.Plugin {
     private Gala.AppCache app_cache;
     private Gala.WindowManager wm;
-    private string? last_seen_desktop_url;
-    private string? last_seen_window_title;
+    private Zeitgeist.Log log;
+
+    private string? last_seen_desktop_url = null;
+    private string? last_seen_window_title = null;
+    private uint watch_id = 0U;
 
     public override void initialize (Gala.WindowManager wm) {
         this.wm = wm;
-        last_seen_desktop_url = null;
-        last_seen_window_title = null;
         app_cache = new Gala.AppCache ();
+        watch_id = Bus.watch_name (
+            BusType.SESSION,
+            "org.gnome.zeitgeist.Engine",
+            BusNameWatcherFlags.NONE,
+            enable,
+            disable);
+    }
+
+    public override void destroy () {
+        log.quit.begin ();
+
+        if (watch_id != 0U)
+            Bus.unwatch_name (watch_id);
+
+        disable ();
+    }
+
+    private void enable () {
+        log = new Zeitgeist.Log ();
 
 #if HAS_MUTTER330
         var display = wm.get_display ();
@@ -54,7 +74,7 @@ public class Zeitgeist.Plugin : Gala.Plugin {
 #endif
     }
 
-    public override void destroy () {
+    private void disable () {
 #if HAS_MUTTER330
         var display = wm.get_display ();
         foreach (unowned Meta.WindowActor actor in display.get_window_actors ()) {
@@ -63,7 +83,7 @@ public class Zeitgeist.Plugin : Gala.Plugin {
 
             unowned Meta.Window window = actor.get_meta_window ();
             if (window.window_type == Meta.WindowType.NORMAL)
-                monitor_window (window);
+                unmonitor_window (window);
         }
 
         display.window_created.disconnect (on_window_created);
@@ -158,10 +178,10 @@ public class Zeitgeist.Plugin : Gala.Plugin {
         events.add (event);
 
         /* *INDENT-OFF* */
-        Zeitgeist.Log.get_default ().insert_events.begin (events, null,
+        log.insert_events.begin (events, null,
             (obj, res) => {
                 try {
-                    Zeitgeist.Log.get_default ().insert_events.end (res);
+                    log.insert_events.end (res);
                 } catch (Error err) {
                     warning (err.message);
                 }
