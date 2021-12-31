@@ -3,9 +3,11 @@ project(
   'vala',
   'c',
   license: ['GPL3'],
-  meson_version: '>=0.50.0',
+  meson_version: '>=0.56.0',
   version: '0.1.0'
 )
+
+vala = meson.get_compiler('vala')
 
 prefix = get_option('prefix')
 libdir = join_paths(prefix, get_option('libdir'))
@@ -97,6 +99,23 @@ if mutter_dep.length() == 0
 endif
 
 mutter_typelib_dir = libmutter_dep.get_pkgconfig_variable('typelibdir')
+
+conf = configuration_data()
+conf.set_quoted('APPLICATION_ID', meson.project_name())
+conf.set_quoted('APPLICATION_NAME', run_command('sh', '-c', 'cat @0@ | jq -r ".name"'.format(join_paths(meson.project_source_root(), 'package.json'))).stdout().strip())
+conf.set_quoted('APPLICATION_DESCRIPTION', run_command('sh', '-c', 'cat @0@ | jq -r ".description"'.format(join_paths(meson.project_source_root(), 'package.json'))).stdout().strip())
+
+config_h = configure_file(
+output: 'config.h',
+  configuration: conf
+)
+
+config_dep = declare_dependency(
+  dependencies: vala.find_library('config', dirs: vapi_dir),
+  sources: config_h
+)
+
+config_inc_dir = include_directories('.')
 
 add_project_arguments(
   ['-DG_LOG_DOMAIN="@0@"'.format(meson.project_name())],

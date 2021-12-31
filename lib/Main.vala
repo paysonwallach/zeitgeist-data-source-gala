@@ -45,6 +45,11 @@ public class Zeitgeist.Plugin : Gala.Plugin {
     }
 
     private void enable () {
+        var registry = new Zeitgeist.DataSourceRegistry ();
+        var data_source = new Zeitgeist.DataSource.full (
+            Config.APPLICATION_ID,
+            Config.APPLICATION_NAME, Config.APPLICATION_DESCRIPTION, null);
+        registry.register_data_source.begin (data_source);
         log = new Zeitgeist.Log ();
 
 #if HAS_MUTTER330
