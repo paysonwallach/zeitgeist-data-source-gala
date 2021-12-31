@@ -1,10 +1,10 @@
 <div align="center">
   <h1></h1>
   <p>Record your application usage in Zeitgeist.</p>
-  <a href="https://github.com/paysonwallach/gala-zeitgeist/releases/latest">
-    <img alt="Version 0.1.0" src="https://img.shields.io/badge/version-0.1.0-red.svg?cacheSeconds=2592000&style=flat-square" />
+  <a href="https://github.com/paysonwallach/zeitgeist-data-source-gala/releases/latest">
+    <img alt="Version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-red.svg?cacheSeconds=2592000&style=flat-square" />
   </a>
-  <a href="https://github.com/paysonwallach/gala-zeitgeist/blob/master/LICENSE" target="\_blank">
+  <a href="https://github.com/paysonwallach/zeitgeist-data-source-gala/blob/master/LICENSE" target="\_blank">
     <img alt="Licensed under the GNU General Public License v3.0" src="https://img.shields.io/github/license//?style=flat-square" />
   <a href=https://buymeacoffee.com/paysonwallach>
     <img src=https://img.shields.io/badge/donate-Buy%20me%20a%20coffe-yellow?style=flat-square>
@@ -13,14 +13,14 @@
   <br>
 </div>
 
-[](git+https://github.com/paysonwallach/gala-zeitgeist.git) is a Gala plugin that logs your activity to [Zeitgeist](https://launchpad.net/zeitgeist-project).
+[](git+https://github.com/paysonwallach/zeitgeist-data-source-gala.git) is a Gala plugin that logs your activity to [Zeitgeist](https://launchpad.net/zeitgeist-project).
 
 ## Installation
 
-Clone this repository or download the [latest release](https://github.com/paysonwallach/gala-zeitgeist/releases/latest).
+Clone this repository or download the [latest release](https://github.com/paysonwallach/zeitgeist-data-source-gala/releases/latest).
 
 ```shell
-git clone git+https://github.com/paysonwallach/gala-zeitgeist.git
+git clone git+https://github.com/paysonwallach/zeitgeist-data-source-gala.git
 ```
 
 Configure the build directory at the root of the project.
@@ -41,4 +41,4 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## License
 
-[](git+https://github.com/paysonwallach/gala-zeitgeist.git) is licensed under the [GNU General Public License v3.0](https://github.com/paysonwallach/gala-zeitgeist/blob/master/LICENSE).
+[](git+https://github.com/paysonwallach/zeitgeist-data-source-gala.git) is licensed under the [GNU General Public License v3.0](https://github.com/paysonwallach/zeitgeist-data-source-gala/blob/master/LICENSE).

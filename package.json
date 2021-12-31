@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/paysonwallach/zeitgeist-data-source-gala/issues"
   },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "format": "run-p format:*",
     "format:js": "prettier --write .",

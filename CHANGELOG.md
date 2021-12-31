@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/paysonwallach/zeitgeist-data-source-gala/compare/v0.1.0...v0.2.0) (2021-12-31)
+
+
+### Features
+
+* Register with Zeitgeist as a data source ([f342164](https://github.com/paysonwallach/zeitgeist-data-source-gala/commit/f342164b93e0e9f4f8d11ec544345108287d4f22))
+
+
+### Bug Fixes
+
+* Provide '.desktop' file for 'zeitgeist-fts' ([dd42112](https://github.com/paysonwallach/zeitgeist-data-source-gala/commit/dd42112c9dc9b500699e470b3db9133863e66a70))
+* Watch for bus name before creating log proxy ([a8d1717](https://github.com/paysonwallach/zeitgeist-data-source-gala/commit/a8d17178a603717c4ab4475b340c0536572342db))
+
 ## 1.1.0 (2020-11-17)
 
 ### Features
